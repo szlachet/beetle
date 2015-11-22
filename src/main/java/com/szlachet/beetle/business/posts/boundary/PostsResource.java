@@ -36,7 +36,7 @@ public class PostsResource {
     @GET
     @Produces(APPLICATION_JSON)
     public Response getAllPosts() {
-        List<JsonObject> posts = pb.getAllPosts();
+        List<String> posts = pb.getAllPosts();
         return Response.ok(posts).build();
     }
     

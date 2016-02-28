@@ -1,4 +1,4 @@
-package com.szlachet.beetle.business;
+package com.szlachet.beetle;
 
 
 import com.mongodb.MongoClient;

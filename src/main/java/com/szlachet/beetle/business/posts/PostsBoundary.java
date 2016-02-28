@@ -1,4 +1,4 @@
-package com.szlachet.beetle.business.posts.boundary;
+package com.szlachet.beetle.business.posts;
 
 import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;

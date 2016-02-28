@@ -1,4 +1,4 @@
-package com.szlachet.beetle.business.posts.boundary;
+package com.szlachet.beetle.business.posts;
 
 import java.net.URI;
 import java.util.List;

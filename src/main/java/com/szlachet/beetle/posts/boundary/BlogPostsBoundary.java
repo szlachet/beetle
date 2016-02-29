@@ -1,4 +1,4 @@
-package com.szlachet.beetle.business.posts;
+package com.szlachet.beetle.posts.boundary;
 
 import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
@@ -15,7 +15,7 @@ import org.bson.types.ObjectId;
  * @author Sebastian Szlachetka
  */
 @Stateless
-public class PostsBoundary {
+public class BlogPostsBoundary {
 
     private static final String POSTS_COLLECTION = "posts";
     

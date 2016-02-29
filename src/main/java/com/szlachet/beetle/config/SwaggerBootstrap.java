@@ -1,0 +1,44 @@
+/*
+ * Copyright 2016 Sebastian Szlachetka.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.szlachet.beetle.config;
+
+import io.swagger.jaxrs.config.BeanConfig;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+/**
+ *
+ * @author Sebastian Szlachetka
+ */
+@WebServlet(loadOnStartup = 2)
+public class SwaggerBootstrap extends HttpServlet{
+    
+    @Override
+    public void init(ServletConfig servletConfig) throws ServletException {
+        super.init(servletConfig);
+        
+        BeanConfig beanConfig = new BeanConfig();
+        beanConfig.setVersion("1.0.0");
+        beanConfig.setSchemes(new String[]{"http"});
+        beanConfig.setHost("localhost:8080");
+        beanConfig.setBasePath("/beetle/resources");
+        beanConfig.setResourcePackage("com.szlachet.beetle.posts.boundary");
+        beanConfig.setScan(true);
+        beanConfig.setPrettyPrint(true);
+    }
+}

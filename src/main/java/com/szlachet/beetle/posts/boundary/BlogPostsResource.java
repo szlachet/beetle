@@ -1,5 +1,7 @@
-package com.szlachet.beetle.business.posts;
+package com.szlachet.beetle.posts.boundary;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import java.net.URI;
 import java.util.List;
 import javax.inject.Inject;
@@ -20,10 +22,11 @@ import static javax.ws.rs.core.Response.Status.NO_CONTENT;
  * @author Sebastian Szlachetka
  */
 @Path("/posts")
-public class PostsResource {
+@Api
+public class BlogPostsResource {
     
     @Inject
-    private PostsBoundary pb;
+    private BlogPostsBoundary pb;
     
     @GET
     @Path("/{id}")
@@ -31,27 +34,5 @@ public class PostsResource {
     public Response getPost(@PathParam("id") String id) {
         String jsonPost = pb.getPost(id);
         return Response.ok(jsonPost).build();
-    }
-    
-    @GET
-    @Produces(APPLICATION_JSON)
-    public Response getAllPosts() {
-        List<String> posts = pb.getAllPosts();
-        return Response.ok(posts).build();
-    }
-    
-    @POST
-    @Consumes(APPLICATION_JSON)
-    @Produces(APPLICATION_JSON)
-    public Response addPost(JsonObject post) {
-        String id = pb.addPost(post);
-        return Response.created(URI.create("/posts/" + id)).build();
-    }
-    
-    @DELETE
-    @Path("/{id}")
-    public Response removePost(@PathParam("id") String id) {
-        pb.removePost(id);
-        return Response.status(NO_CONTENT).build();
     }
 }

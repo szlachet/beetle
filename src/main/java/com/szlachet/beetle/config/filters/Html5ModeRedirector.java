@@ -34,12 +34,8 @@ import javax.servlet.http.HttpServletRequest;
  * @author Sebastian Szlachetka
  */
 @WebFilter(filterName = "Html5ModeRedirector",
-urlPatterns = {"/*"})
+        urlPatterns = {"/home", "/about", "/about/seba"})
 public class Html5ModeRedirector implements Filter {
-
-    private static final Logger LOGGER = Logger.getLogger(Html5ModeRedirector.class.getName());
-    private static final List<String> NOT_REDIRECTED = Lists.newArrayList("/beetle/api-docs", 
-            "/beetle/css", "/beetle/img", "/beetle/js", "/beetle/lib", "/beetle/modules", "/beetle/index.html");
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -48,11 +44,7 @@ public class Html5ModeRedirector implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest httpRequest = (HttpServletRequest) request;
-        String requestURI = httpRequest.getRequestURI();
-        if(!NOT_REDIRECTED.stream().filter(p -> requestURI.startsWith(p)).findFirst().isPresent()) {
-            httpRequest.getRequestDispatcher("/index.html").forward(request, response);
-        }
+        request.getRequestDispatcher("/index.html").forward(request, response);
         chain.doFilter(request, response);
     }
 

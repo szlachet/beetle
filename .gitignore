@@ -12,3 +12,6 @@
 hs_err_pid*
 /target/
 /beetle-core/target/
+/beetle-ui/nbproject/private/
+/beetle-ui/app/lib/
+/beetle-ui/node_modules

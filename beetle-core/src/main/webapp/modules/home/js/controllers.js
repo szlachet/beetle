@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('eLeave.leaves.controllers', []).controller('AboutController', ['$scope', '$state', function ($scope, $state) {
+angular.module('beetle.home.controllers', []).controller('AboutController', ['$scope', '$state', function ($scope, $state) {
 
         $scope.closeAbout = function () {
             $state.go('home');

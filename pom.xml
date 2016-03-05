@@ -1,13 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.sebastian-szlachetka</groupId>
     <artifactId>beetle</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
 
-    <name>beetle</name>
+    <modules>
+        <module>beetle-core</module>
+    </modules>
+
+    <name>${project.artifactId}</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,7 +19,7 @@
         <maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
         <maven.war.plugin.version>2.6</maven.war.plugin.version>
         <mongo.java.driver.version>3.2.0-rc0</mongo.java.driver.version>
-        <version.org.hibernate.ogm>4.1.3.Final</version.org.hibernate.ogm>
+        <hibernate.ogm.version>4.1.3.Final</hibernate.ogm.version>
         <swagger.version>1.5.7</swagger.version>
     </properties>
 
@@ -37,13 +40,13 @@
                 <groupId>org.hibernate.ogm</groupId>
                 <artifactId>hibernate-ogm-bom</artifactId>
                 <type>pom</type>
-                <version>${version.org.hibernate.ogm}</version>
+                <version>${hibernate.ogm.version}</version>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.hibernate.ogm</groupId>
                 <artifactId>hibernate-ogm-mongodb</artifactId>
-                <version>${version.org.hibernate.ogm}</version>
+                <version>${hibernate.ogm.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
@@ -55,7 +58,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>beetle</finalName>
+        <finalName>${project.artifactId}</finalName>
         <pluginManagement>
             <plugins> 
                 <plugin>
@@ -88,22 +91,4 @@
             </plugin>
         </plugins>
     </build>
-    <dependencies>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongo-java-driver</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.ogm</groupId>
-            <artifactId>hibernate-ogm-mongodb</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-jaxrs</artifactId>
-        </dependency>
-    </dependencies>
 </project>

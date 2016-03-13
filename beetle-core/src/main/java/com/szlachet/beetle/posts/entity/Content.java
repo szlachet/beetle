@@ -18,13 +18,15 @@ package com.szlachet.beetle.posts.entity;
 import com.szlachet.beetle.BaseEntity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  *
  * @author Sebastian Szlachetka
  */
 @Entity
-public class PostContent extends BaseEntity{
+@Table(name = "content")
+public class Content extends BaseEntity {
    
     @Column(name = "contnet")
     private String content;

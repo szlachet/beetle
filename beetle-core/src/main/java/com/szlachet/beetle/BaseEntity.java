@@ -2,9 +2,10 @@ package com.szlachet.beetle;
 
 import java.io.Serializable;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import org.hibernate.annotations.GenericGenerator;
+import org.bson.types.ObjectId;
 
 /**
  *
@@ -14,15 +15,14 @@ import org.hibernate.annotations.GenericGenerator;
 public class BaseEntity implements Serializable {
     
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private ObjectId id;
 
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
     

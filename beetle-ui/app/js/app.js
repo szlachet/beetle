@@ -1,6 +1,6 @@
 'use strict'
 
-var beetleApp = angular.module('beetle',['ui.router', 'beetle.home', 'beetle.controllers', 'beetle.directives', 'beetle.filters', 'beetle.services']);
+var beetleApp = angular.module('beetle',['ui.router', 'ngResource', 'beetle.about', 'beetle.home', 'beetle.controllers', 'beetle.directives', 'beetle.filters', 'beetle.services']);
 
 beetleApp.config(['$locationProvider', '$urlRouterProvider', function($locationProvider, $urlRouterProvider){
         $locationProvider.html5Mode(true);

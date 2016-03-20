@@ -16,7 +16,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <javaee.version>7.0</javaee.version>	
+        <javaee.version>7.0</javaee.version>
+        <jaxrs.cors.version>0.0.2</jaxrs.cors.version>	
         <maven.compiler.plugin.version>3.3</maven.compiler.plugin.version>
         <maven.war.plugin.version>2.6</maven.war.plugin.version>
         <maven.resources.plugin.version>2.7</maven.resources.plugin.version>
@@ -59,6 +60,12 @@
                 <artifactId>swagger-jaxrs</artifactId>
                 <version>${swagger.version}</version>
             </dependency>
+            <dependency>
+				<groupId>com.airhacks</groupId>
+				<artifactId>jaxrs-cors</artifactId>
+				<version>${jaxrs.cors.version}</version>
+				<scope>compile</scope>
+			</dependency>
         </dependencies>
     </dependencyManagement>
 

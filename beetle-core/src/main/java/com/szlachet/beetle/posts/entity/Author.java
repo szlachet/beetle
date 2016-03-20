@@ -34,6 +34,12 @@ public class Author extends BaseEntity {
     @Column(name = "surname")
     private String surname;
 
+    @Column(name = "position")
+    private String position;
+
+    @Column(name = "about")
+    private String about;
+
     public String getName() {
         return name;
     }
@@ -48,6 +54,22 @@ public class Author extends BaseEntity {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
     }
 
 }

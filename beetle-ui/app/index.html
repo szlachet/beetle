@@ -3,34 +3,40 @@
     <head>
         <meta charset="utf-8">
         <base href="/beetle/">
-        <title>The Beetle - Blog</title>
+        <title>The Beetle - that's my ball</title>
 
         <!-- build:css app/built/app.min.css -->
-        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.css">
         <link rel="stylesheet" href="css/app.css">
         <!-- endbuild -->
     </head>
     <body>
         <!-- NAVIGATION -->
-        <nav class="navbar navbar-inverse" role="navigation">
-            <div class="navbar-header">
-                <a class="navbar-brand" ui-sref="#">The Beetle - Blog</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a ui-sref="home">Home</a></li>
-                <li><a ui-sref="about">About</a></li>
-            </ul>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" ui-sref="home">The Beetle</a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a ui-sref="home">Home</a></li>
+                        <li><a ui-sref="home">Blog</a></li>
+                        <li><a ui-sref="about">About</a></li>
+                        <li><a ui-sref="home">Contact</a></li>
+                    </ul>
+                </div> 
+            </div> 
         </nav>
-
         <div class="container" ng-cloak>
-            <br/>  	
+            <br>
+            <div ui-view class="main-content">Loading . . .</div>
         </div>
-        <div ui-view class="main-content">Loading . . .</div>
     </body>
 
     <!-- build:js app/built/app.min.js -->
 
-    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/jquery/dist/jquery.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script src="lib/angular/angular.js"></script>
@@ -48,6 +54,9 @@
 
     <script src="modules/home/homeModule.js"></script>
     <script src="modules/home/js/controllers.js"></script>
-
+    
+    <script src="modules/about/aboutModule.js"></script>
+    <script src="modules/about/js/controllers.js"></script>
+    <script src="modules/about/js/services.js"></script>
     <!-- endbuild -->
 </html>

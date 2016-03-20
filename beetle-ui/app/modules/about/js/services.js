@@ -17,6 +17,10 @@
 
 'use strict'
 
-angular.module('beetle.about.controllers', []).controller('AboutController', ['$scope', 'Author', function ($scope, Author) {
-        this.author = Author.get({id: '56ef0f2f627ae8ccf7b159f9'});
+angular.module('beetle.about.services', []).factory('Author', ['$resource', 'GET_AUTHOR_ENDPOINT', function ($resource, GET_AUTHOR_ENDPOINT) {
+        return $resource(GET_AUTHOR_ENDPOINT);
     }]);
+
+angular.module('beetle.about.services').value('GET_AUTHOR_ENDPOINT', '/beetle/resources/authors/:id');
+
+//angular.module('beetle.about.services').value('GET_AUTHOR_ENDPOINT', 'http://localhost:8080/beetle/resources/authors/:id');

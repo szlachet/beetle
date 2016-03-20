@@ -1,8 +1,39 @@
-<div class="row"> 
-    <div class="well">
-        <h3 class="postTitle"><a ui-sref=".seba">Sebastian Szlachetka</a></h3>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">About<small> Me</small></h1>
+        <ol class="breadcrumb">
+            <li><a ui-sref="home">Home</a>
+            </li>
+            <li class="active">About</li>
+        </ol>
     </div>
-    
-    <div ui-view></div>
 </div>
+<div ng-controller="AboutController as aboutController">
+    <div class="col-md-6 text-center">
+        <div class="thumbnail">
+            <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+            <div class="caption">
+                <h3>{{aboutController.author.name}} {{aboutController.author.surname}}<br>
+                    <small>{{aboutController.author.position}}</small>
+                </h3>
+                <br>
+                <ul class="list-inline">
+                    <li><a href="#"><i class="fa fa-2x fa-github-square"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h2>About Me</h2>
+        <p>{{aboutController.author.about}}</p>
+    </div>
+</div>    
+
 

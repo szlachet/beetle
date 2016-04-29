@@ -9,6 +9,7 @@
     <modules>
         <module>beetle-ui</module>
         <module>beetle-core</module>
+        <module>beetle-security</module>
     </modules>
 
     <name>${project.artifactId}</name>
@@ -27,6 +28,7 @@
         <!-- For Wildfly 9.0.2.Final -->
         <hibernate.ogm.version>4.2.0.Final</hibernate.ogm.version>
         <swagger.version>1.5.7</swagger.version>
+        <jose4j.version>0.5.0</jose4j.version>
     </properties>
 
     <dependencyManagement>
@@ -66,6 +68,11 @@
 				<version>${jaxrs.cors.version}</version>
 				<scope>compile</scope>
 			</dependency>
+            <dependency>
+                <groupId>org.bitbucket.b_c</groupId>
+                <artifactId>jose4j</artifactId>
+                <version>${jose4j.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

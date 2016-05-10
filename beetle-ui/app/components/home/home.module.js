@@ -13,10 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+(function () {
+    'use strict';
 
+    angular.module('beetle.home', [
+        'beetle.home.controllers',
+        'beetle.home.services'
+    ]);
 
-'use strict'
+    angular.module('beetle.home.controllers', []);
+    angular.module('beetle.home.services', []);
+}());
 
-angular.module('beetle.about.controllers', []).controller('AboutController', ['$scope', 'Author', function ($scope, Author) {
-        this.author = Author.get({id: '56ef0f2f627ae8ccf7b159f9'});
-    }]);

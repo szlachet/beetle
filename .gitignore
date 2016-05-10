@@ -13,6 +13,6 @@ hs_err_pid*
 */target/**
 /beetle-core/target/
 /beetle-ui/nbproject/private/
-/beetle-ui/app/lib/
+/beetle-ui/app/assets/libs/
 /beetle-ui/node_modules
 beetle-ui/npm-debug.log

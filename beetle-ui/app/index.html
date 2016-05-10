@@ -6,9 +6,9 @@
         <title>The Beetle - that's my ball</title>
 
         <!-- build:css app/built/app.min.css -->
-        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
-        <link rel="stylesheet" href="lib/fontawesome/css/font-awesome.css">
-        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="assets/libs/fontawesome/css/font-awesome.css">
+        <link rel="stylesheet" href="assets/css/app.css">
         <!-- endbuild -->
     </head>
     <body>
@@ -36,27 +36,25 @@
 
     <!-- build:js app/built/app.min.js -->
 
-    <script src="lib/jquery/dist/jquery.js"></script>
-    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/libs/jquery/dist/jquery.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script src="lib/angular/angular.js"></script>
-    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="lib/angular-resource/angular-resource.js"></script>
-    <script src="lib/angular-sanitize/angular-sanitize.js"></script>
-    <script src="lib/angular-animate/angular-animate.js"></script>
-    <script src="lib/angular-cookies/angular-cookies.js"></script>
+    <script src="assets/libs/angular/angular.js"></script>
+    <script src="assets/libs/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="assets/libs/angular-resource/angular-resource.js"></script>
+    <script src="assets/libs/angular-sanitize/angular-sanitize.js"></script>
+    <script src="assets/libs/angular-animate/angular-animate.js"></script>
+    <script src="assets/libs/angular-cookies/angular-cookies.js"></script>
 
-    <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
-    <script src="js/directives.js"></script>
-    <script src="js/filters.js"></script>
-    <script src="js/services.js"></script>
+    <script src="app.module.js"></script>
+    <script src="app.routes.js"></script>
 
-    <script src="modules/home/homeModule.js"></script>
-    <script src="modules/home/js/controllers.js"></script>
+    <script src="components/home/home.module.js"></script>
+    <script src="components/home/controllers/home.controller.js"></script>
+    <script src="components/home/services/home.service.js"></script>
     
-    <script src="modules/about/aboutModule.js"></script>
-    <script src="modules/about/js/controllers.js"></script>
-    <script src="modules/about/js/services.js"></script>
+    <script src="components/about/about.module.js"></script>
+    <script src="components/about/controllers/about.controller.js"></script>
+    <script src="components/about/services/about.service.js"></script>
     <!-- endbuild -->
 </html>

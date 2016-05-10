@@ -13,14 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+(function () {
+    'use strict';
 
+    angular.module('beetle.home.services')
+            .factory('homeService', homeService);
 
-'use strict'
+    function homeService() {
+        var service = {
+        };
 
-angular.module('beetle.about.services', []).factory('Author', ['$resource', 'GET_AUTHOR_ENDPOINT', function ($resource, GET_AUTHOR_ENDPOINT) {
-        return $resource(GET_AUTHOR_ENDPOINT);
-    }]);
+        return service;
+    }
 
-angular.module('beetle.about.services').value('GET_AUTHOR_ENDPOINT', '/beetle/resources/authors/:id');
+}());
 
-//angular.module('beetle.about.services').value('GET_AUTHOR_ENDPOINT', 'http://localhost:8080/beetle/resources/authors/:id');

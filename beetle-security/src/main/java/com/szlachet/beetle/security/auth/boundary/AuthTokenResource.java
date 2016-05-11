@@ -1,5 +1,6 @@
 package com.szlachet.beetle.security.auth.boundary;
 
+import com.szlachet.beetle.security.filter.BasicAuthenticated;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -26,6 +27,7 @@ public class AuthTokenResource {
     private AuthTokenBoundary authToken;
     
     @GET
+    @BasicAuthenticated
     public Response getJsonWebToken() {
         JsonObject jsonGreetings = Json.createObjectBuilder().add("greetings", "Hello Security World :)").add("token", authToken.getJsonWebToken()).build();
         return Response.ok(jsonGreetings).build();

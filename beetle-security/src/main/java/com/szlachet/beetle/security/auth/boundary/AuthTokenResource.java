@@ -29,7 +29,8 @@ public class AuthTokenResource {
     @GET
     @BasicAuthenticated
     public Response getJsonWebToken() {
-        JsonObject jsonGreetings = Json.createObjectBuilder().add("greetings", "Hello Security World :)").add("token", authToken.getJsonWebToken()).build();
+        
+        JsonObject jsonGreetings = Json.createObjectBuilder().add("token", authToken.getJsonWebToken()).build();
         return Response.ok(jsonGreetings).build();
     }
     

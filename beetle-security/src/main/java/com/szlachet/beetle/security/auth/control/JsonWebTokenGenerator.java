@@ -38,13 +38,15 @@ public class JsonWebTokenGenerator {
         jws.setPayload(claims.toJson());
         jws.setKey(rsaJsonWebKey.getPrivateKey());
         jws.setKeyIdHeaderValue(rsaJsonWebKey.getKeyId());
-        jws.setAlgorithmHeaderValue(AlgorithmIdentifiers.HMAC_SHA256);
+        jws.setAlgorithmHeaderValue(AlgorithmIdentifiers.RSA_USING_SHA256);
         String jwt = "";
         try {
             jwt = jws.getCompactSerialization();
         } catch (JoseException ex) {
-            LOGGER.log(Level.SEVERE, "", ex);
+            // TODO it should be handle in the better way than just logging
+            LOGGER.log(Level.INFO, "Json Web Token generation failed!", ex);
         }
+
         return jwt;
     } 
 }

@@ -16,8 +16,11 @@
 package com.szlachet.beetle.posts.entity;
 
 import com.szlachet.beetle.BaseEntity;
+import static com.szlachet.beetle.posts.entity.Author.AUTHOR_FIND_ALL;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -26,7 +29,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "author")
+@NamedQueries({
+    @NamedQuery(name = AUTHOR_FIND_ALL, query = "Select a From Author a")})
 public class Author extends BaseEntity {
+
+    public static final String AUTHOR_FIND_ALL = "Author.findAll";
 
     @Column(name = "name")
     private String name;

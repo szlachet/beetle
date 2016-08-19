@@ -60,5 +60,9 @@
             <groupId>com.airhacks</groupId>
             <artifactId>jaxrs-cors</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.bitbucket.b_c</groupId>
+            <artifactId>jose4j</artifactId>
+        </dependency>  
     </dependencies>
 </project>

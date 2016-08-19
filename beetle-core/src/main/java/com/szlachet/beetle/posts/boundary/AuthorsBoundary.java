@@ -16,6 +16,8 @@
 package com.szlachet.beetle.posts.boundary;
 
 import com.szlachet.beetle.posts.entity.Author;
+import static com.szlachet.beetle.posts.entity.Author.AUTHOR_FIND_ALL;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -33,6 +35,10 @@ public class AuthorsBoundary {
 
     public Author getAuthor(ObjectId id) {
         return entityManager.find(Author.class, id);
+    }
+
+    public List<Author> getAuthors() {
+        return entityManager.createNamedQuery(AUTHOR_FIND_ALL, Author.class).getResultList();
     }
 
     public String createAuthor(Author aAuthor) {

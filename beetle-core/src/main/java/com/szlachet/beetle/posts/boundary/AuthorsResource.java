@@ -15,6 +15,7 @@
  */
 package com.szlachet.beetle.posts.boundary;
 
+import com.szlachet.beetle.jwt.filter.JwtAuthenticated;
 import com.szlachet.beetle.posts.entity.Author;
 import io.swagger.annotations.Api;
 import javax.inject.Inject;
@@ -40,6 +41,7 @@ import org.bson.types.ObjectId;
 @Produces(APPLICATION_JSON)
 @Consumes(APPLICATION_JSON)
 @Api
+@JwtAuthenticated
 public class AuthorsResource {
 
     @Context
@@ -53,6 +55,11 @@ public class AuthorsResource {
     public Response getAuthor(@PathParam("id") String id) {
         Author author = ab.getAuthor(new ObjectId(id));
         return author == null ? Response.status(NOT_FOUND).build() : Response.ok(author).build();
+    }
+
+    @GET
+    public Response getAuthors() {
+        return Response.ok(ab.getAuthors()).build();
     }
 
     @POST

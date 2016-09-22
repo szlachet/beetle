@@ -1,4 +1,4 @@
-package com.szlachet.beetle.security.filter;
+package com.szlachet.beetle.security.infrastructure.jaxrs.filter;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

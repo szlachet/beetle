@@ -1,4 +1,4 @@
-package com.szlachet.beetle.security.auth.control;
+package com.szlachet.beetle.security.domain.model.jwt;
 
 import java.util.Arrays;
 import java.util.logging.Level;

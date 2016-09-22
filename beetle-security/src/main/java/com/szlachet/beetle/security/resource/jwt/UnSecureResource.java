@@ -1,4 +1,4 @@
-package com.szlachet.beetle.security.auth.boundary;
+package com.szlachet.beetle.security.resource.jwt;
 
 import javax.json.Json;
 import javax.json.JsonObject;

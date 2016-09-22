@@ -1,4 +1,4 @@
-package com.szlachet.beetle.security.filter;
+package com.szlachet.beetle.security.infrastructure.jaxrs.filter;
 
 import java.io.IOException;
 import java.security.Principal;

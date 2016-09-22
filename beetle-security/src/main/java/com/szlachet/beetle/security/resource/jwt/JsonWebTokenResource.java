@@ -1,6 +1,7 @@
-package com.szlachet.beetle.security.auth.boundary;
+package com.szlachet.beetle.security.resource.jwt;
 
-import com.szlachet.beetle.security.filter.BasicAuthenticated;
+import com.szlachet.beetle.security.application.jwt.JsonWebTokenService;
+import com.szlachet.beetle.security.infrastructure.jaxrs.filter.BasicAuthenticated;
 import javax.inject.Inject;
 import javax.servlet.annotation.HttpConstraint;
 import javax.servlet.annotation.ServletSecurity;
@@ -8,7 +9,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.HttpHeaders;
+import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 import static javax.ws.rs.core.MediaType.*;
 import javax.ws.rs.core.Response;
 
@@ -21,23 +22,26 @@ import javax.ws.rs.core.Response;
 @Consumes(APPLICATION_JSON)
 @ServletSecurity(
         @HttpConstraint(transportGuarantee = ServletSecurity.TransportGuarantee.CONFIDENTIAL, rolesAllowed = {"admin"}))
-public class AuthTokenResource {
-
-    private static final String BEARER_TOKEN = "Bearer";
+public class JsonWebTokenResource {
 
     @Inject
-    private AuthTokenBoundary authToken;
-
+    private JsonWebTokenService jsonWenTokenService;
+    
     @GET
     @Path("/token")
     @BasicAuthenticated
     public Response getJsonWebToken() {
-        return Response.ok().header(HttpHeaders.AUTHORIZATION, String.join(" ", BEARER_TOKEN, authToken.getJsonWebToken())).build();
+        String jsonWebToken =
+                this.jsonWenTokenService
+                        .getBearerJsonWebToken()
+                        .jsonWebToken();
+        Response response = Response.ok().header(AUTHORIZATION, jsonWebToken).build();
+        return response;
     }
 
     @GET
     @Path("/keys")
     public Response getJsonWebKeySet() {
-        return Response.ok(authToken.getJsonWebKeySet().toJson()).build();
+        return Response.ok(jsonWenTokenService.getJsonWebKeySet().toJson()).build();
     }
 }

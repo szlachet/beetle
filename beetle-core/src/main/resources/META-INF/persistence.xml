@@ -5,6 +5,7 @@
 
     <persistence-unit name="BeetlePU" transaction-type="JTA">
         <provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
+<!--        <exclude-unlisted-classes>false</exclude-unlisted-classes>-->
         <class>com.szlachet.beetle.posts.entity.Author</class>
         <class>com.szlachet.beetle.posts.entity.Post</class> 
         <class>com.szlachet.beetle.posts.entity.Tag</class> 
@@ -15,7 +16,7 @@
         <properties>
             <property name="hibernate.transaction.jta.platform"
                           value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />
-            <property name="jboss.as.jpa.providerModule" value="org.hibernate:ogm"/>
+            <property name="jboss.as.jpa.providerModule" value="org.hibernate.ogm:5.0"/>
             <property name="hibernate.ogm.datastore.provider" value="mongodb"/>
             <property name="hibernate.ogm.datastore.database" value="beetledb"/>
             <property name="hibernate.ogm.datastore.host" value="localhost"/>

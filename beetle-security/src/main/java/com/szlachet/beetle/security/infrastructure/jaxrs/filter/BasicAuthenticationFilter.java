@@ -7,6 +7,7 @@ import javax.annotation.Priority;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
+import static javax.ws.rs.core.HttpHeaders.AUTHORIZATION;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.ext.Provider;
@@ -21,12 +22,11 @@ import javax.ws.rs.ext.Provider;
 public class BasicAuthenticationFilter implements ContainerRequestFilter {
 
     private static final String ADMIN = "admin";
-    private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String BASIC_AUTHENTICATION = "Basic ";
 
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
-        final String authHeader = requestContext.getHeaderString(AUTHORIZATION_HEADER);
+        final String authHeader = requestContext.getHeaderString(AUTHORIZATION);
         if (isBasicAuthentication(authHeader)) {
             authenticate(requestContext, authHeader);
         } else {

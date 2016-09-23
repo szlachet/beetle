@@ -25,8 +25,8 @@ public class JsonWebTokenGenerator {
     public String generateJsonWebToken() {
         final RsaJsonWebKey rsaJsonWebKey = rsaKeyGenerator.getRsaJsonWebKey();
         final JwtClaims claims = new JwtClaims();
-        claims.setIssuer("beetle");
-        claims.setAudience("beetle");
+        claims.setIssuer("beetle-security");
+        claims.setAudience("beetle-core");
         claims.setExpirationTimeMinutesInTheFuture(5);
         claims.setGeneratedJwtId();
         claims.setIssuedAtToNow();

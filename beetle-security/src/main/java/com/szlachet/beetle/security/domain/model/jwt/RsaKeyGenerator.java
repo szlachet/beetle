@@ -1,5 +1,6 @@
 package com.szlachet.beetle.security.domain.model.jwt;
 
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -38,7 +39,7 @@ public class RsaKeyGenerator {
     private void generateRsaJsonWebKey() {
         try {
             rsaJsonWebKey = RsaJwkGenerator.generateJwk(2048);
-            rsaJsonWebKey.setKeyId("BeetleKeyId01");
+            rsaJsonWebKey.setKeyId(UUID.randomUUID().toString());
             rsaJsonWebKey.setAlgorithm(AlgorithmIdentifiers.HMAC_SHA256);
             LOGGER.log(Level.SEVERE, "RSA JSON Web Key: {0}", rsaJsonWebKey.toJson());
         } catch (JoseException ex) {

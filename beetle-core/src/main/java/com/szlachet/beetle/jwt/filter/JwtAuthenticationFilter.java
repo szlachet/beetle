@@ -49,11 +49,20 @@ public class JwtAuthenticationFilter implements ContainerRequestFilter {
     private static final Logger LOGGER = Logger.getLogger(JwtAuthenticationFilter.class.getName());
 
     private HttpsJwks jwks;
+    private JwtConsumer jwtConsumer;
 
     @PostConstruct
     private void init() {
         //TODO it should be resolved in the better way
         jwks = new HttpsJwks("http://localhost:8080/beetle-security/resources/authentication/keys");
+        jwtConsumer = new JwtConsumerBuilder()
+                .setRequireExpirationTime() // the JWT must have an expiration time
+                .setMaxFutureValidityInMinutes(300) // but the  expiration time can't be too crazy
+                .setAllowedClockSkewInSeconds(30) // allow some leeway in validating time based claims to account for clock skew
+                .setRequireSubject() // the JWT must have a subject claim
+                .setExpectedIssuer("beetle-security") // whom the JWT needs to have been issued by
+                .setExpectedAudience("beetle-core")
+                .setVerificationKeyResolver(new HttpsJwksVerificationKeyResolver(jwks)).build();
     }
 
     @Override
@@ -82,14 +91,6 @@ public class JwtAuthenticationFilter implements ContainerRequestFilter {
     }
 
     private void verifyJsonWebToken(String jwt) {
-        JwtConsumer jwtConsumer = new JwtConsumerBuilder()
-                .setRequireExpirationTime() // the JWT must have an expiration time
-                .setMaxFutureValidityInMinutes(300) // but the  expiration time can't be too crazy
-                .setAllowedClockSkewInSeconds(30) // allow some leeway in validating time based claims to account for clock skew
-                .setRequireSubject() // the JWT must have a subject claim
-                .setExpectedIssuer("beetle") // whom the JWT needs to have been issued by
-                .setExpectedAudience("beetle")
-                .setVerificationKeyResolver(new HttpsJwksVerificationKeyResolver(jwks)).build();
         try {
             JwtClaims jwtClaims = jwtConsumer.processToClaims(jwt);
             LOGGER.log(Level.INFO, "Json Web Token verification success: {0}.", jwtClaims);
